@@ -1,0 +1,38 @@
+from p5 import * 
+
+class Perso2:
+    def __init__(self, posX, posY, taille, couleur, couleur1, couleur2, couleur3, couleur4):
+        self.posX = posX
+        self.posY = posY
+        self.taille = taille
+        self.couleur = couleur
+        self.couleur1 = couleur1
+        self.couleur2 = couleur2
+        self.couleur3 = couleur3
+        self.couleur4 = couleur4
+        
+    def dessine(self):
+        translate(self.posX, self.posY)  # Applique la translation à la position du personnage
+        scale(self.taille)  # Applique l'échelle
+        fill(self.couleur1)
+        ellipse(390,365,80,70) #corps
+        fill(self.couleur2)
+        ellipse(390,370,60,55) #tête
+        fill(self.couleur4) 
+        strokeWeight(4)
+        ellipse(350, 340, 20, 50) #bras
+        ellipse(430, 340, 20, 50)
+        
+        
+
+        
+def setup():
+    size(800, 600)  # Définir la taille de la fenêtre    
+    global perso2  # Déclare la variable personnage comme globale
+    perso2 = Perso2(0,0, 1, (255, 229, 204), (88, 60, 40), (255, 229, 204), (255), (255, 229, 204))  # Crée un personnage 
+
+def draw():
+    background(255)  # Remplir l'arrière-plan en blanc
+    perso2.dessine()# Dessine le personnage à sa nouvelle position
+    
+run()
